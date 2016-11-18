@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import Firebase
 
 class ViewController: UIViewController {
+    
+    let ref = FIRDatabase.database().reference(withPath: "grocery-items")
 
     override func viewDidLoad() {
         super.viewDidLoad()
