@@ -17,6 +17,7 @@
 		E48855951DDE258600A5D885 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E48855931DDE258600A5D885 /* LaunchScreen.storyboard */; };
 		E48855A01DDE258600A5D885 /* simplistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E488559F1DDE258600A5D885 /* simplistTests.swift */; };
 		E48855AB1DDE258600A5D885 /* simplistUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48855AA1DDE258600A5D885 /* simplistUITests.swift */; };
+		E4A93DBC1DDFA8C60057E9E7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E4A93DBB1DDFA8C60057E9E7 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		E48855A61DDE258600A5D885 /* simplistUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = simplistUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E48855AA1DDE258600A5D885 /* simplistUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = simplistUITests.swift; sourceTree = "<group>"; };
 		E48855AC1DDE258600A5D885 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E4A93DBB1DDFA8C60057E9E7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F268CD3FAF6D92DE8B3138C5 /* Pods-simplistTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-simplistTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-simplistTests/Pods-simplistTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -139,6 +141,7 @@
 			children = (
 				E488558A1DDE258600A5D885 /* AppDelegate.swift */,
 				E488558C1DDE258600A5D885 /* ViewController.swift */,
+				E4A93DBB1DDFA8C60057E9E7 /* GoogleService-Info.plist */,
 				E488558E1DDE258600A5D885 /* Main.storyboard */,
 				E48855911DDE258600A5D885 /* Assets.xcassets */,
 				E48855931DDE258600A5D885 /* LaunchScreen.storyboard */,
@@ -279,6 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E48855951DDE258600A5D885 /* LaunchScreen.storyboard in Resources */,
+				E4A93DBC1DDFA8C60057E9E7 /* GoogleService-Info.plist in Resources */,
 				E48855921DDE258600A5D885 /* Assets.xcassets in Resources */,
 				E48855901DDE258600A5D885 /* Main.storyboard in Resources */,
 			);
@@ -588,7 +592,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = simplist/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cse438.simplist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -600,7 +603,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = simplist/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cse438.simplist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -675,6 +677,7 @@
 				E48855B11DDE258600A5D885 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E48855B21DDE258600A5D885 /* Build configuration list for PBXNativeTarget "simplistTests" */ = {
 			isa = XCConfigurationList;
@@ -683,6 +686,7 @@
 				E48855B41DDE258600A5D885 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E48855B51DDE258600A5D885 /* Build configuration list for PBXNativeTarget "simplistUITests" */ = {
 			isa = XCConfigurationList;
@@ -691,6 +695,7 @@
 				E48855B71DDE258600A5D885 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
