@@ -12,6 +12,18 @@ import FirebaseDatabase
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var username: UITextField!
+    @IBOutlet weak var password: UITextField!
+    @IBAction func loginButton(sender: AnyObject) {
+        
+    }
+    var loggedInUser = "";
+    @IBAction func registerButton(sender: AnyObject) {
+        FIRAuth.auth()?.createUserwithEmail (username.text!, password: password.text!) { (user, error) in
+            // ...
+        }
+    }
+    
    
     
     
