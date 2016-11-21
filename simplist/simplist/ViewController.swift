@@ -14,14 +14,30 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
+    var user = "";
+    
     @IBAction func loginButton(sender: AnyObject) {
+        FIRAuth.auth()!.signInWithEmail(username.text!, password: password.text!) { (user, error) in
+            if error == nil {
+                self.user = self.username.text!
+                print (self.user)
+            }
+        }
         
     }
-    var loggedInUser = "";
+    
     @IBAction func registerButton(sender: AnyObject) {
-        FIRAuth.auth()?.createUserwithEmail (username.text!, password: password.text!) { (user, error) in
-            // ...
-        }
+        FIRAuth.auth()!.createUserWithEmail(username.text!, password: password.text!, completion: {
+            user, error in
+            if error == nil {
+                FIRAuth.auth()!.signInWithEmail(self.username.text!, password: self.password.text!) { (user, error) in
+                    if error == nil {
+                        self.user = self.username.text!
+                        print (self.user)
+                    }
+                }
+            }
+        })
     }
     
    
