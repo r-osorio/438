@@ -45,7 +45,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let ref = FIRDatabase.database().referenceWithPath("grocery-items")
+        let ref = FIRDatabase.database().referenceWithPath("event-list")
         print(ref.key)
         // Do any additional setup after loading the view, typically from a nib.
     }

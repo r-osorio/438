@@ -15,6 +15,10 @@ class NewEvent: UIViewController {
     @IBOutlet weak var eventDate: UIDatePicker!
     @IBOutlet weak var eventGuests: UITextField!
     @IBAction func createButton(sender: AnyObject) {
+        let newEvent = Event(name: eventName.text!, date: eventDate.date, guests: eventGuests.text!)
+        let databaseRef = FIRDatabase.database().referenceWithPath("event-list")
+        let eventInDatabaseRef = databaseRef.child(eventName.text!)
+        eventInDatabaseRef.setValue(newEvent.toAnyObject())
     }
 
 }
