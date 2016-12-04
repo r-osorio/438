@@ -10,6 +10,8 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 
+var sessionUN = ""
+
 class ViewController: UIViewController {
     
     @IBOutlet weak var username: UITextField!
@@ -17,18 +19,29 @@ class ViewController: UIViewController {
     var user = "";
     
     @IBAction func loginButton(sender: AnyObject) {
-        FIRAuth.auth()!.signInWithEmail(username.text!, password: password.text!) { (user, error) in
-            if error == nil {
-                self.user = self.username.text!
-                print (self.user)
+        dispatch_async(dispatch_get_main_queue()) {
+            FIRAuth.auth()!.signInWithEmail(self.username.text!, password: self.password.text!) { (user, error) in
+                if error == nil {
+                    self.user = self.username.text!
+                    print (self.user)
+                    print("set un successfully")
+                    sessionUN = self.username.text!
+                    let vc = EventScreen()
+                    self.presentViewController(vc, animated: true, completion: nil)
+                } else {
+                    print("bad UN/PW combo!")
+                    sessionUN = "BAD"
+                    
+                }
             }
         }
-        
+    
     }
     
     @IBAction func registerButton(sender: AnyObject) {
         FIRAuth.auth()!.createUserWithEmail(username.text!, password: password.text!, completion: {
             user, error in
+            print(error)
             if error == nil {
                 FIRAuth.auth()!.signInWithEmail(self.username.text!, password: self.password.text!) { (user, error) in
                     if error == nil {
@@ -48,6 +61,12 @@ class ViewController: UIViewController {
         let ref = FIRDatabase.database().referenceWithPath("event-list")
         print(ref.key)
         // Do any additional setup after loading the view, typically from a nib.
+        
+//        FIRAuth.auth()!.addAuthStateDidChangeListener() {auth, sessionUN in
+//            if sessionUN != "" {
+//                self.performSegueWithIdentifier("EventScreen", sender: nil)
+//            }
+//        }
     }
 
     override func didReceiveMemoryWarning() {

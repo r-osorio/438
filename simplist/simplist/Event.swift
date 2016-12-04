@@ -16,7 +16,7 @@ class Event: NSObject {
     init(name: String, date: NSDate, guests: String) {
         self.Name = name
         self.Date = date
-        self.Guests = guests.componentsSeparatedByString(", ")
+        self.Guests = guests.componentsSeparatedByString(",")
         super.init()
     }
     
@@ -29,7 +29,5 @@ class Event: NSObject {
             "guests": Guests
         ]
     }
-    
-    
     
 }

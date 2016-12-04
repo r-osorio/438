@@ -18,6 +18,8 @@
 		E48855A01DDE258600A5D885 /* simplistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E488559F1DDE258600A5D885 /* simplistTests.swift */; };
 		E48855AB1DDE258600A5D885 /* simplistUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48855AA1DDE258600A5D885 /* simplistUITests.swift */; };
 		E4A93DBC1DDFA8C60057E9E7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E4A93DBB1DDFA8C60057E9E7 /* GoogleService-Info.plist */; };
+		E4C5DD4B1DF4C21500766C43 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C5DD491DF4C21500766C43 /* DetailViewController.swift */; };
+		E4C5DD4C1DF4C21500766C43 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4C5DD4A1DF4C21500766C43 /* DetailViewController.xib */; };
 		E4E2D5121DF2076800B687B1 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E2D5111DF2076800B687B1 /* Event.swift */; };
 		EC19EE231DE2682600603FDF /* EventScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC19EE221DE2682600603FDF /* EventScreen.swift */; };
 		EC19EE251DE2722300603FDF /* NewEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC19EE241DE2722300603FDF /* NewEvent.swift */; };
@@ -63,6 +65,8 @@
 		E48855AA1DDE258600A5D885 /* simplistUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = simplistUITests.swift; sourceTree = "<group>"; };
 		E48855AC1DDE258600A5D885 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E4A93DBB1DDFA8C60057E9E7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E4C5DD491DF4C21500766C43 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		E4C5DD4A1DF4C21500766C43 /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		E4E2D5111DF2076800B687B1 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		EC19EE221DE2682600603FDF /* EventScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventScreen.swift; sourceTree = "<group>"; };
 		EC19EE241DE2722300603FDF /* NewEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewEvent.swift; sourceTree = "<group>"; };
@@ -149,6 +153,8 @@
 				E488558C1DDE258600A5D885 /* ViewController.swift */,
 				E4A93DBB1DDFA8C60057E9E7 /* GoogleService-Info.plist */,
 				E488558E1DDE258600A5D885 /* Main.storyboard */,
+				E4C5DD491DF4C21500766C43 /* DetailViewController.swift */,
+				E4C5DD4A1DF4C21500766C43 /* DetailViewController.xib */,
 				E48855911DDE258600A5D885 /* Assets.xcassets */,
 				E48855931DDE258600A5D885 /* LaunchScreen.storyboard */,
 				E48855961DDE258600A5D885 /* Info.plist */,
@@ -292,6 +298,7 @@
 			files = (
 				E48855951DDE258600A5D885 /* LaunchScreen.storyboard in Resources */,
 				E4A93DBC1DDFA8C60057E9E7 /* GoogleService-Info.plist in Resources */,
+				E4C5DD4C1DF4C21500766C43 /* DetailViewController.xib in Resources */,
 				E48855921DDE258600A5D885 /* Assets.xcassets in Resources */,
 				E48855901DDE258600A5D885 /* Main.storyboard in Resources */,
 			);
@@ -459,6 +466,7 @@
 				E488558D1DDE258600A5D885 /* ViewController.swift in Sources */,
 				EC19EE251DE2722300603FDF /* NewEvent.swift in Sources */,
 				EC19EE231DE2682600603FDF /* EventScreen.swift in Sources */,
+				E4C5DD4B1DF4C21500766C43 /* DetailViewController.swift in Sources */,
 				E488558B1DDE258600A5D885 /* AppDelegate.swift in Sources */,
 				E4E2D5121DF2076800B687B1 /* Event.swift in Sources */,
 			);
