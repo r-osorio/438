@@ -58,7 +58,7 @@ class EventScreen: UIViewController, UITableViewDataSource, UITableViewDelegate 
         let c = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
         var i = 0
         for element in self.items[indexPath.row].children.allObjects as! [FIRDataSnapshot] {
-            if (i == 2) { //index 2 is the "name" index of each Event in firebase
+            if (i == 3) { //index 2 is the "name" index of each Event in firebase
                 print(element.value)
                 c.textLabel!.text = element.value as? String
             }
@@ -74,9 +74,10 @@ class EventScreen: UIViewController, UITableViewDataSource, UITableViewDelegate 
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         print ("you clicked on something!")
-        let detailVC = DetailViewController(nibName: "DetailedVC", bundle: nil)
-        detailVC.name = self.items[indexPath.row].value!["name"].description
-        navigationController?.pushViewController(detailVC, animated: true)
+        let detailVC = storyboard?.instantiateViewControllerWithIdentifier("detailVC") as? DetailViewController
+        detailVC?.name = self.items[indexPath.row].value!["name"].description
+        
+        self.navigationController?.pushViewController(detailVC!, animated: true)
     }
     
 

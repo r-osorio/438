@@ -19,22 +19,21 @@ class ViewController: UIViewController {
     var user = "";
     
     @IBAction func loginButton(sender: AnyObject) {
-        dispatch_async(dispatch_get_main_queue()) {
+
             FIRAuth.auth()!.signInWithEmail(self.username.text!, password: self.password.text!) { (user, error) in
                 if error == nil {
                     self.user = self.username.text!
                     print (self.user)
                     print("set un successfully")
                     sessionUN = self.username.text!
-                    let vc = EventScreen()
-                    self.presentViewController(vc, animated: true, completion: nil)
+                    self.performSegueWithIdentifier("theSegue", sender: self)
                 } else {
                     print("bad UN/PW combo!")
                     sessionUN = "BAD"
                     
                 }
             }
-        }
+    
     
     }
     

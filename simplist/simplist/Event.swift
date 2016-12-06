@@ -12,11 +12,13 @@ class Event: NSObject {
     var Name: String!
     var Date: NSDate!
     var Guests: [String]!
+    var Host: String
     
-    init(name: String, date: NSDate, guests: String) {
+    init(name: String, date: NSDate, guests: String, host: String) {
         self.Name = name
         self.Date = date
         self.Guests = guests.componentsSeparatedByString(",")
+        self.Host = host
         super.init()
     }
     
@@ -26,7 +28,8 @@ class Event: NSObject {
         return [
             "name": Name,
             "date": dateFormatter.stringFromDate(Date),
-            "guests": Guests
+            "guests": Guests,
+            "host": Host,
         ]
     }
     
