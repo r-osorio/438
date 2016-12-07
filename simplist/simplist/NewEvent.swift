@@ -27,7 +27,7 @@ class NewEvent: UIViewController {
         }
         let databaseRef2 = FIRDatabase.database().referenceWithPath("ingredient-list")
         let eventInDatabaseRef2 = databaseRef2.child(eventName.text!)
-        eventInDatabaseRef2.setValue(ingredientsList)
+        eventInDatabaseRef2.setValue(ingredientsArray)
         eventInDatabaseRef.setValue(newEvent.toAnyObject())
     }
 

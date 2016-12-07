@@ -19,6 +19,7 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
     let ref = FIRDatabase.database().referenceWithPath("ingredient-list")
     var items = [FIRDataSnapshot]()
     var name: String = ""
+    var size: Int!
     //var ingredientData = [FIRDataSnapshot]()
     
     override func viewDidLoad() {
@@ -26,19 +27,8 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         theIngredientTableView.delegate = self
         theIngredientTableView.dataSource = self
         theIngredientTableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        
 
         // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        theLabel.text = name
-        
         ref.observeEventType(.Value) { (snapshot: FIRDataSnapshot!) in
             
             var newItems = [FIRDataSnapshot]()
@@ -51,39 +41,58 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
             // replace the old array
             self.items = newItems
             // reload the UITableView
-            //print(self.items)
             self.theIngredientTableView.reloadData()
             
         }
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        theLabel.text = name
 
         
         
     }
     
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let c = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
-        print ("self.items['indexpath.row'].key = ")
-        print (self.items[indexPath.row].key)
         var i = 0
-        var eventIndex = 0
-        for element in self.items{
-            //print (element.value)
-            if (element.key == name) {
-                eventIndex = i
-                //c.textLabel!.text = element.children.allObjects[indexPath.row].value
+        for event in self.items {
+            if(event.key == name) {
+                break
             }
             i += 1
         }
-        c.textLabel!.text = self.items[eventIndex].children.allObjects[indexPath.row].value //{
-//            print("!!!")
-//            print(element.description)
-//            c.textLabel!.text = element.description
-//        }
+        print("key")
+        let key = self.items[i].value?.allObjects[indexPath.row]["name"].description
+        print (key)
+        print("value")
+        let value = self.items[i].value?.allObjects[indexPath.row]["broughtBy"].description
+        print(value)
+        //print (self.items[i].value?.valueForKey(key as? String))
+        c.textLabel!.text = (key as String!) + ", brought by " + (value as String!)
+
         return c
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let c = items.count
+        print(self.items)
+        var c = self.items.count
+        if (c >= 1) {
+            var i = 0
+            for event in self.items {
+                if (event.key == name) {
+                    break
+                }
+                i += 1
+            }
+            c = self.items[i].value!.allObjects.count
+        }
         return c
     }
     
@@ -91,15 +100,31 @@ class DetailViewController: UIViewController, UITableViewDataSource, UITableView
         print ("you clicked on:")
         print(indexPath.row)
         var i = 0
-        var eventIndex = 0
-        for element in self.items {
-            if (element.key == name) {
-                eventIndex = i
+        for event in self.items {
+            if(event.key == name) {
+                break
             }
             i += 1
         }
-        let cell = self.items[eventIndex].children.allObjects[indexPath.row] as? FIRDataSnapshot
-        let reference = cell?.ref
+        let nodeRef = FIRDatabase.database().referenceWithPath("ingredient-list/\(name)/\(indexPath.row)")
+        nodeRef.updateChildValues(["broughtBy": sessionUN])
+        //let ingredientName = self.items[i].value?.allObjects[indexPath.row]["name"].description
+        //let ingredientBroughtBy = self.items[i].value?.allObjects[indexPath.row]["broughtBy"]
+        //let key = self.items[i].value?.allObjects[indexPath.row]["name"].description as String!
+        //let ref = self.items[i].value?.ref.parent//.child("\(key)")
+        //print(ref?.description())
+        //ref?.updateChildValues(["broughtBy": sessionUN])
+//        var update = [[String: String]]()
+//        update.append([
+//            "name": ingredientName!,
+//            "broughtBy": sessionUN
+//        ])
+//        var childUpdates = [[FIRDatabaseReference: [[String: String]]]]()
+//        childUpdates.append([key!: update])
+        //key?.updateChildValues(["broughtByyyy": sessionUN])
+        
+        //let cell = self.items.
+        //let reference = cell?.ref
 //        reference.update(cell + "(" + sessionUN + ")")
 //        AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH FIXXXXXXXXXXXXX MMEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
 //        print(cell.value)
